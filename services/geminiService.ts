@@ -1,6 +1,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { UserPreferences, Recommendation, Product } from '../types';
-import { PRODUCT_DATABASE } from '../data/products';
+// Added .ts extension here to fix the module resolution error
+import { PRODUCT_DATABASE } from '../data/products.ts';
 
 // Fix for "Cannot find name process" error in Vercel build
 declare const process: { env: { API_KEY: string } };
@@ -93,7 +94,7 @@ export async function getGiftRecommendations(prefs: UserPreferences): Promise<Re
 
   } catch (error) {
     console.error("Recommendation Error:", error);
-    return PRODUCT_DATABASE.slice(0, 8).map((p) => ({
+    return PRODUCT_DATABASE.slice(0, 8).map((p: Product) => ({
       ...p,
       matchScore: 50,
       reasoning: "A consistently popular choice from our collection that fits many styles."
