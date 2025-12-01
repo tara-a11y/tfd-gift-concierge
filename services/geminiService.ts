@@ -1,6 +1,6 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { UserPreferences, Recommendation, Product } from '../types';
-// Removed .ts extension to fix resolution error
+// REMOVED .ts extension - this is the standard way for Vite projects
 import { PRODUCT_DATABASE } from '../data/products';
 
 // Fix for "Cannot find name process" error in Vercel build
