@@ -18,7 +18,8 @@ const Hero: React.FC<HeroProps> = ({ onStart }) => {
             The Art of Gifting, Simplified
           </h1>
           <p className="mt-6 text-lg leading-8 text-stone-600">
-            Struggling to find the right gift? The TFD Gift Concierge analyzes your needs to recommend curated products from our exclusive collection of hand-curated gifts.
+            Struggling to find the right gift? The TFD Gift Concierge analyzes your needs to 
+    recommend curated products from our exclusive collection of hand-selected finds.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <button
