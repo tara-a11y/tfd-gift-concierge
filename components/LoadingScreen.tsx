@@ -8,7 +8,8 @@ const LoadingScreen: React.FC = () => {
         <div className="absolute top-0 left-0 w-full h-full border-4 border-stone-900 rounded-full border-t-transparent animate-spin"></div>
       </div>
       <h2 className="text-2xl font-serif text-stone-900 mb-2">Curating Selections</h2>
-      <p className="text-stone-500 animate-pulse">Consulting our design database...</p>
+      {/* Updated loading text */}
+      <p className="text-stone-500 animate-pulse">We're coming up with great ideas...</p>
     </div>
   );
 };
