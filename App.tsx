@@ -64,12 +64,11 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col font-sans text-stone-900 bg-stone-50">
       <header className="absolute inset-x-0 top-0 z-50">
-        <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-          <div className="flex lg:flex-1">
-            <a href="/" onClick={handleLogoClick} className="-m-1.5 p-1.5 flex items-center gap-2">
-              <span className="text-2xl font-serif font-bold tracking-tight text-stone-900">Tara Fust Design</span>
-            </a>
-          </div>
+        {/* Changed justify-between to justify-center to center the logo */}
+        <nav className="flex items-center justify-center p-6 lg:px-8" aria-label="Global">
+          <a href="/" onClick={handleLogoClick} className="-m-1.5 p-1.5 flex items-center gap-2">
+            <span className="text-2xl font-serif font-bold tracking-tight text-stone-900">Tara Fust Design</span>
+          </a>
         </nav>
       </header>
 
@@ -95,9 +94,10 @@ const App: React.FC = () => {
 
       <footer className="bg-white border-t border-stone-200 mt-auto">
         <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
-          <div className="mt-8 md:order-1 md:mt-0">
+          <div className="mt-8 md:order-1 md:mt-0 w-full">
+            {/* Updated year to 2025 */}
             <p className="text-center text-xs leading-5 text-stone-500">
-              &copy; 2024 Tara Fust Design. All rights reserved.
+              &copy; 2025 Tara Fust Design. All rights reserved.
             </p>
           </div>
         </div>
