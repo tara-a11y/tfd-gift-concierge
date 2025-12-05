@@ -1,6 +1,5 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { UserPreferences, Recommendation, Product } from '../types';
-// REMOVED .ts extension - this is the standard way for Vite projects
 import { PRODUCT_DATABASE } from '../data/products';
 
 // Fix for "Cannot find name process" error in Vercel build
@@ -33,11 +32,13 @@ export async function getGiftRecommendations(prefs: UserPreferences): Promise<Re
     - Additional Notes: ${prefs.notes || "None"}
 
     Task:
-    Select the top 8 most appropriate gifts from the PRODUCT_LIST provided below that match the User Request Profile.
+    Select the top 9 most appropriate gifts from the PRODUCT_LIST provided below that match the User Request Profile.
     
     Important on Pricing:
-    - Many products have a price of 0 in the data. Infer the likely budget fit based on item type.
-    - If the user budget is "Under $50", prioritize small accessories or items with explicit low prices.
+    - Many products have a price of 0 in the data (meaning price varies or is unknown). 
+    - Do NOT filter these out just because the price is 0. 
+    - Instead, infer the likely budget fit based on the item type (e.g. "Candle" is likely under $100, "Sofa" is likely over $1000) and its Tags (e.g. "Gifts Under $100", "Small Luxuries").
+    - If the user budget is "Under $50", prioritize items that are clearly small accessories or have explicit low prices.
 
     Important on Gender:
     - If Gender Preference is 'Him', prioritize items tagged with 'Gifts for Him' or items that are generally considered masculine or unisex.
@@ -49,7 +50,7 @@ export async function getGiftRecommendations(prefs: UserPreferences): Promise<Re
     Return a JSON array of objects. Each object must contain:
     - "productId": The exact ID from the product list.
     - "matchScore": A number between 0 and 100 indicating how good a fit it is.
-    - "reasoning": A 2-sentence explanation of why this is perfect. Write in the first person plural. Do not mention being an AI.
+    - "reasoning": A 2-sentence explanation of why this is perfect for this specific user/occasion. Write in the first person plural (e.g., "We selected this because...") or professionally (e.g., "This piece adds..."). Do not mention being an AI or automated system.
   `;
 
   try {
@@ -95,7 +96,8 @@ export async function getGiftRecommendations(prefs: UserPreferences): Promise<Re
 
   } catch (error) {
     console.error("Recommendation Error:", error);
-    return PRODUCT_DATABASE.slice(0, 8).map((p: Product) => ({
+    // Fallback: Just return the first 9 products if generation fails
+    return PRODUCT_DATABASE.slice(0, 9).map((p: Product) => ({
       ...p,
       matchScore: 50,
       reasoning: "A consistently popular choice from our collection that fits many styles."
