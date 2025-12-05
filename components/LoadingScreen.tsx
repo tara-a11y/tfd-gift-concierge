@@ -9,7 +9,8 @@ const LoadingScreen: React.FC = () => {
       </div>
       <h2 className="text-2xl font-serif text-stone-900 mb-2">Curating Selections</h2>
       {/* Updated loading text */}
-      <p className="text-stone-500 animate-pulse">We're coming up with great ideas...</p>
+      <p className="text-stone-500 animate-pulse">We’re coming up with great ideas…
+It only takes a sec — good gifts are on the way.</p>
     </div>
   );
 };
