@@ -10,7 +10,7 @@ const SHOPMY_COLLECTION_URL =
 const Hero: React.FC<HeroProps> = ({ onStart }) => {
   return (
     <div className="relative isolate px-6 pt-14 lg:px-8 min-h-[80vh] flex flex-col justify-center items-center text-center pt-8 pb-16">
-      <div className="mx-auto max-w-2xl py-12 sm:py-6">
+      <div className="mx-auto max-w-2xl py-4 sm:py-6">
         
         {/* Badge */}
         <div className="mb-6 flex justify-center fade-in">
