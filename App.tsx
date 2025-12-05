@@ -92,7 +92,7 @@ const App: React.FC = () => {
         )}
       </main>
 
-      <footer className="bg-white border-t border-stone-200 mt-auto">
+      <footer className="bg-[#fcfbfa] border-t border-stone-200 mt-auto">
         <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
           <div className="mt-8 md:order-1 md:mt-0 w-full">
             {/* Updated year to 2025 */}
